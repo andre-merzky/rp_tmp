@@ -87,7 +87,7 @@ if 'cpu' in mode:
     for n in range(N):
         workload_cpu(load_cpu, n)
     stop = time.time()
-    print('sequential cpu %d: %5.1f' % (N, stop-start))
+    print('sequential cpu %d @ %d: %5.1f' % (N, C, stop-start))
    
    
     # ------------------------------------------------------------------------------
