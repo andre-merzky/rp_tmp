@@ -6,11 +6,11 @@ test -d $BASE || (
     sudo mount -t cpuset none $BASE
     )
 
-test -d $BASE/quad || (
-    mkdir       $BASE/quad
-    echo 0-3 >> $BASE/quad/cpuset.cpus
-    echo 0   >> $BASE/quad/cpuset.mems 
+test -d $BASE/single || (
+    mkdir       $BASE/single
+    echo 0   >> $BASE/single/cpuset.cpus
+    echo 0   >> $BASE/single/cpuset.mems 
     )
 
-echo $$ >> $BASE/quad/tasks 
+echo $$ >> $BASE/single/tasks 
 

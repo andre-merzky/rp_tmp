@@ -15,7 +15,7 @@ cpusets  = {'/single' : 1,
             '/'       : 8}
 myset    = open('/proc/self/cpuset', 'r').read().strip()
 C        = cpusets[myset]
-N        = 4
+N        = 2
 
 LOAD_CPU = 1000 * 1000 * 1000
 load_cpu = LOAD_CPU / N
@@ -87,7 +87,7 @@ if 'cpu' in mode:
     for n in range(N):
         workload_cpu(load_cpu, n)
     stop = time.time()
-    print 'sequential cpu %d: %5.1f' % (N, stop-start)
+    print('sequential cpu %d: %5.1f' % (N, stop-start))
    
    
     # ------------------------------------------------------------------------------
@@ -101,7 +101,7 @@ if 'cpu' in mode:
     for t in threads:
         t.join()
     stop = time.time()
-    print 'threaded   cpu %d @ %d: %5.1f' % (N, C, stop-start)
+    print('threaded   cpu %d @ %d: %5.1f' % (N, C, stop-start))
     
     
     # ------------------------------------------------------------------------------
@@ -115,7 +115,7 @@ if 'cpu' in mode:
     for t in procs:
         t.join()
     stop = time.time()
-    print 'processed  cpu %d @ %d: %5.1f' % (N, C, stop-start)
+    print('processed  cpu %d @ %d: %5.1f' % (N, C, stop-start))
    
    
 # ==============================================================================
@@ -132,7 +132,7 @@ if 'io' in mode and N>=2:
     for t in threads:
         t.join()
     stop = time.time()
-    print 'threaded   i/o %d @ %d: %5.1f' % (N, C, stop-start)
+    print('threaded   i/o %d @ %d: %5.1f' % (N, C, stop-start))
     
     
     # ------------------------------------------------------------------------------
@@ -146,7 +146,7 @@ if 'io' in mode and N>=2:
     for t in procs:
         t.join()
     stop = time.time()
-    print 'processed  i/o %d @ %d: %5.1f' % (N, C, stop-start)
+    print('processed  i/o %d @ %d: %5.1f' % (N, C, stop-start))
 
 
 # ==============================================================================
@@ -164,7 +164,7 @@ if 'mix' in mode and N>=4:
     for t in threads:
         t.join()
     stop = time.time()
-    print 'threaded   mix %d @ %d: %5.1f' % (N, C, stop-start)
+    print('threaded   mix %d @ %d: %5.1f' % (N, C, stop-start))
     
     
     # ------------------------------------------------------------------------------
@@ -178,6 +178,6 @@ if 'mix' in mode and N>=4:
     for t in procs:
         t.join()
     stop = time.time()
-    print 'processed  mix %d @ %d: %5.1f' % (N, C, stop-start)
+    print('processed  mix %d @ %d: %5.1f' % (N, C, stop-start))
 
 
