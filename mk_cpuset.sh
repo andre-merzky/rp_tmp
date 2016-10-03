@@ -1,16 +1,19 @@
+#!/bin/sh
 
 BASE=/dev/cpuset
+NAME=quad
+CORES=0-3
 
 test -d $BASE || (
     mkdir $BASE
     sudo mount -t cpuset none $BASE
     )
 
-test -d $BASE/quad || (
-    mkdir       $BASE/quad
-    echo 0-3 >> $BASE/quad/cpuset.cpus
-    echo 0   >> $BASE/quad/cpuset.mems 
+test -d $BASE/$NAME || (
+    mkdir          $BASE/$NAME
+    echo $CORES >> $BASE/$NAME/cpuset.cpus
+    echo 0      >> $BASE/$NAME/cpuset.mems 
     )
 
-echo $$ >> $BASE/quad/tasks 
+echo $$ >> $BASE/$NAME/tasks 
 

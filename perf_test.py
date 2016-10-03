@@ -15,7 +15,7 @@ cpusets  = {'/single' : 1,
             '/'       : 8}
 myset    = open('/proc/self/cpuset', 'r').read().strip()
 C        = cpusets[myset]
-N        = 4
+N        = 2
 
 LOAD_CPU = 1000 * 1000 * 1000
 load_cpu = LOAD_CPU / N
