@@ -1,3 +1,4 @@
+#!/bin/sh
 
 BASE=/dev/cpuset
 NAME=$1  ; shift
